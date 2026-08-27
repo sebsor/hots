@@ -44,7 +44,9 @@ with no browser address bar — it behaves like an installed app.
 ## About offline use and updates
 
 - A service worker caches the app so it keeps working with no signal
-  once it's been opened at least once.
+  once it's been opened at least once — this includes every hero
+  portrait image, precached on first install so browsing the full roster
+  works offline right away, not just for heroes you've already viewed.
 - If you update these files later (new heroes, fixes, etc.), bump the
   `CACHE_VERSION` string at the top of `service-worker.js` before you
   redeploy — that's what tells phones that already have it installed to
@@ -68,3 +70,11 @@ exact URL. That means:
 If you want changes (new heroes, feature tweaks, etc.), go back to the
 source `talent-calculator.jsx` file and have it recompiled from there,
 then redeploy the resulting `app.js` alongside these other files.
+
+## About the hero portrait images
+
+The images in `heroes/` are Blizzard's own official hero portraits
+(the same assets used by other community sites like Icy-Veins and
+HeroesProfile), not anything generated for this project. That's normal
+for a fan-made, non-commercial tool like this one, but worth knowing if
+you ever plan to distribute this more broadly.
