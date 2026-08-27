@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
+<title>HotS Talent Calculator</title>
+<meta name="description" content="Interactive Heroes of the Storm talent calculator — build, save, and revisit talent trees for every hero." />
+
+<!-- PWA manifest -->
+<link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#0A0D18" />
+
+<!-- Android / Chrome install -->
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png" />
+
+<!-- iOS "Add to Home Screen" support -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="HotS Talents" />
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+
+<style>
+  html, body, #root { height: 100%; margin: 0; }
+  body { background: #0A0D18; overscroll-behavior-y: none; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="app.js"></script>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("service-worker.js").catch(() => {
+        // Non-fatal — the app still works without offline caching.
+      });
+    });
+  }
+</script>
+</body>
+</html>
