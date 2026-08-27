@@ -1,7 +1,7 @@
 // Bump this version string any time you redeploy updated files —
 // that's what tells returning visitors' browsers to fetch the new
 // versions instead of continuing to serve the cached ones.
-const CACHE_VERSION = "v2";
+const CACHE_VERSION = "v3";
 const CACHE_NAME = `hots-talent-calculator-${CACHE_VERSION}`;
 
 const APP_SHELL = [

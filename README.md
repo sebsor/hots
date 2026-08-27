@@ -47,10 +47,14 @@ with no browser address bar — it behaves like an installed app.
   once it's been opened at least once — this includes every hero
   portrait image, precached on first install so browsing the full roster
   works offline right away, not just for heroes you've already viewed.
-- If you update these files later (new heroes, fixes, etc.), bump the
-  `CACHE_VERSION` string at the top of `service-worker.js` before you
-  redeploy — that's what tells phones that already have it installed to
-  fetch the new version instead of continuing to serve the old cached one.
+- **If you update these files later, you must bump the `CACHE_VERSION`
+  string at the top of `service-worker.js` before you redeploy.** This
+  isn't optional — the service worker caches everything cache-first, so
+  without a version bump, browsers that have already visited the site
+  will keep serving the old cached files indefinitely, even though the
+  new files are sitting right there on the server and the deploy
+  succeeded with no errors. This is the single most common way an
+  update "silently doesn't show up."
 
 ## About saved builds
 
